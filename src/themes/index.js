@@ -1,7 +1,10 @@
 const LightTheme = {
-  primary: '#e6bc2f',
-  secondary: '#1b53ba',
-  text: 'black'
+  primary: '#ffcc00',
+  secondary: '#0065b0',
+  back: '#000000',
+  white: '#ffffff',
+  blue: '#1b53ba',
+  yellow: '#e6bc2f'
 }
 
 const DarkTheme = {

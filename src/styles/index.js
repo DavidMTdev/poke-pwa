@@ -2,9 +2,13 @@ import { createGlobalStyle } from 'styled-components'
 
 import variables from './variables'
 import header from './header'
+import login from './login'
+import loading from './loading'
 
 const styles = {
-  header: header(variables)
+  header: header(variables),
+  login: login(variables),
+  loading: loading(variables)
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -15,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: ${props => props.theme.secondary};
   }
 
   code {
