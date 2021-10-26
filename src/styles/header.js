@@ -61,13 +61,13 @@ const header = variable => {
     Burger: styled.span`
       height: 3px;
       width: 100%;
-      background-color: ${props => props.theme.white};
+      background-color: ${props => props.theme.blue};
       position: relative;
       &:before {
         content: '';
         height: 3px;
         width: 100%;
-        background-color: ${props => props.theme.white};
+        background-color: ${props => props.theme.blue};
         display: block;
         position: absolute;
         top: -10px;
@@ -76,7 +76,7 @@ const header = variable => {
         content: '';
         height: 3px;
         width: 100%;
-        background-color: ${props => props.theme.white};
+        background-color: ${props => props.theme.blue};
         display: block;
         position: absolute;
         top: 10px;

@@ -31,7 +31,7 @@ const LoginForm = () => {
 
         setTimeout(() => {
           history.push('/home')
-        }, 3000)
+        }, 1000)
       })
       .catch(function (error) {
         localStorage.removeItem('token')
@@ -59,11 +59,7 @@ const LoginForm = () => {
         </StyledForm>
       </FormContainer>
 
-      {showLoading && (
-        <LoadingContainer>
-          <Loading size='1' />
-        </LoadingContainer>
-      )}
+      {showLoading && <Loading size='1' />}
     </>
   )
 }
@@ -72,6 +68,5 @@ const FormContainer = styles.login.FormContainer
 const StyledForm = styles.login.StyledForm
 const StyledInput = styles.login.StyledInput
 const StyledButton = styles.login.StyledButton
-const LoadingContainer = styles.loading.LoadingContainer
 
 export default LoginForm
