@@ -9,9 +9,7 @@ const generation = variable => {
       align-items: center;
       color: ${props => props.theme.white};
     `,
-    ItemText: styled.div`
-      color: ${props => props.theme.blue};
-    `,
+    ItemText: styled.div``,
     ItemLink: styled.div`
       background-color: ${props => props.theme.primary};
       margin: 10px 0;
@@ -21,6 +19,7 @@ const generation = variable => {
       display: flex;
       align-items: center;
       justify-content: center;
+      color: ${props => props.theme.blue};
     `,
     GenerationItems: styled.div`
       display: flex;
