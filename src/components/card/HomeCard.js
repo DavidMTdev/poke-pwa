@@ -3,26 +3,31 @@ import PropTypes from 'prop-types'
 
 import styles from '../../styles'
 
-const HomeCard = props => {
+const HomeCard = ({
+  width = '50',
+  text = '',
+  img = false,
+  src = '',
+  alt = ''
+}) => {
   return (
-    <CardGroup width={props.width}>
-      {props.img && <CardImage src={props.src} alt={props.alt} />}
-      {props.text && <CardText>{props.text}</CardText>}
-    </CardGroup>
+    <CardItem width={width}>
+      {img && <CardImage src={src} alt={alt} />}
+      {text && <CardText>{text}</CardText>}
+    </CardItem>
   )
 }
 
-// const CardContainer = styles.home.CardContainer
-const CardGroup = styles.home.CardGroup
+const CardItem = styles.home.CardItem
 const CardText = styles.home.CardText
 const CardImage = styles.home.CardImage
 
 HomeCard.propTypes = {
-  width: (PropTypes.string = '50'),
-  img: (PropTypes.bool = false),
-  src: (PropTypes.string = ''),
-  alt: (PropTypes.string = ''),
-  text: (PropTypes.string = '')
+  width: PropTypes.string,
+  img: PropTypes.bool,
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  text: PropTypes.string
 }
 
 export default HomeCard

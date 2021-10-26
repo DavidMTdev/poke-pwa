@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 
+// eslint-disable-next-line no-unused-vars
 const home = variable => {
   return {
     CardContainer: styled.div`
@@ -8,7 +9,11 @@ const home = variable => {
       margin: 50px 20px;
     `,
 
-    CardGroup: styled.div`
+    CardLink: styled.div`
+      display: contents;
+    `,
+
+    CardItem: styled.div`
       width: ${props => props.width}%;
       min-height: 100px;
       background-color: ${props => props.theme.primary};

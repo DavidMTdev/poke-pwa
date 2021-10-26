@@ -2,15 +2,17 @@ import { createGlobalStyle } from 'styled-components'
 
 import variables from './variables'
 import header from './header'
-import login from './login'
 import loading from './loading'
-import home from './home'
+import login from './view/login'
+import home from './view/home'
+import generations from './view/generations'
 
 const styles = {
   header: header(variables),
   login: login(variables),
   loading: loading(variables),
-  home: home(variables)
+  home: home(variables),
+  generations: generations(variables)
 }
 
 const GlobalStyle = createGlobalStyle`
