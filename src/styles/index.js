@@ -4,11 +4,13 @@ import variables from './variables'
 import header from './header'
 import login from './login'
 import loading from './loading'
+import home from './home'
 
 const styles = {
   header: header(variables),
   login: login(variables),
-  loading: loading(variables)
+  loading: loading(variables),
+  home: home(variables)
 }
 
 const GlobalStyle = createGlobalStyle`
