@@ -11,6 +11,20 @@ const loading = variable => {
   }
 `
   return {
+    DisableContainer: styled.div`
+      position: absolute;
+      top: 5vh;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-height: calc(100vh - 5vh);
+      background-color: #00000080;
+      z-index: 1;
+    `,
+
     LoadingContainer: styled.div`
       display: flex;
       justify-content: center;
@@ -36,61 +50,6 @@ const loading = variable => {
         top: ${props => props.top}px;
         left: ${props => props.left}px;
       }
-      /* &:nth-child(2) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(3) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(4) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(5) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(6) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(7) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(8) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(9) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(10) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(11) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      }
-      &:nth-child(12) {
-        animation-delay: ${props => props.delay}s;
-        top: ${props => props.top}px;
-        left: ${props => props.left}px;
-      } */
     `
   }
 }

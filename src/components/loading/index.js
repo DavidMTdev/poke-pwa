@@ -16,9 +16,14 @@ const index = props => {
     />
   ))
 
-  return <Loading size={80 / props.size}>{loadingItems}</Loading>
+  return (
+    <LoadingContainer>
+      <Loading size={80 / props.size}>{loadingItems}</Loading>
+    </LoadingContainer>
+  )
 }
 
+const LoadingContainer = styles.loading.LoadingContainer
 const Loading = styles.loading.Loading
 const LoadingItem = styles.loading.LoadingItem
 
