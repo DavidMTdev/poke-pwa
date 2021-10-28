@@ -7,8 +7,11 @@ const PokeStats = props => {
   return (
     <div>
       <div>
-        {stats.map(item => (
-          <div>{item.effort}</div>
+        {stats.map((item, index) => (
+          <div key={index}>
+            <span>{item?.stat.name} </span>
+            <span>{item?.base_stat}</span>
+          </div>
         ))}
       </div>
     </div>
