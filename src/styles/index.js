@@ -6,13 +6,15 @@ import loading from './loading'
 import login from './view/login'
 import home from './view/home'
 import generations from './view/generations'
+import button from './components/button'
 
 const styles = {
   header: header(variables),
   login: login(variables),
   loading: loading(variables),
   home: home(variables),
-  generations: generations(variables)
+  generations: generations(variables),
+  button: button(variables)
 }
 
 const GlobalStyle = createGlobalStyle`

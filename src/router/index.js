@@ -1,7 +1,9 @@
 import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
+import { useEffect } from 'react'
 
 import routes from './routes'
+// eslint-disable-next-line no-unused-vars
 import { LightTheme, DarkTheme } from '../themes'
 import { GlobalStyle } from '../styles'
 
@@ -10,6 +12,10 @@ import PrivateRoute from '../components/route/PrivateRoute'
 import PublicRoute from '../components/route/PublicRoute'
 
 const Router = () => {
+  useEffect(() => {
+    localStorage.setItem('language', 'en')
+  }, [])
+
   return (
     <ThemeProvider theme={LightTheme}>
       <GlobalStyle />

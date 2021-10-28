@@ -11,6 +11,7 @@ import BackButton from '../components/button/BackButton'
 const Generations = () => {
   const [generations, setGenerations] = useState([])
   const [isLoading, setisLoading] = useState(true)
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null)
   const history = useHistory()
   const language = localStorage.getItem('language')
