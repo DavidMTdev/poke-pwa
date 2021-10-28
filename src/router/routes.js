@@ -5,6 +5,7 @@ import Generation from '../views/Generation'
 import Pokedex from '../views/Pokedex'
 import PokedexRegion from '../views/PokedexRegion'
 import Pokemon from '../views/Pokemon'
+import Favorites from '../views/Favorites'
 
 const routes = [
   {
@@ -46,10 +47,16 @@ const routes = [
       requiresAuth: true
     }
   },
-
   {
     path: '/pokemon/:id',
     component: Pokemon,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/team/',
+    component: Favorites,
     meta: {
       requiresAuth: true
     }

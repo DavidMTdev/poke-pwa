@@ -12,13 +12,13 @@ const Pokemon = () => {
 
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/${id}`
   const language = localStorage.getItem('language')
-  const favoritesLocalStorage = localStorage.getItem('favorites')
+  const localStorageFavorites = localStorage.getItem('favorites')
 
   const [isLoading, setIsLoading] = useState(true)
   const [pokemon, setPokemon] = useState({})
   const [isFavorite, setIsfavorite] = useState(false)
   const [favorites, setFavorites] = useState(
-    favoritesLocalStorage ? JSON.parse(favoritesLocalStorage) : []
+    localStorageFavorites ? JSON.parse(localStorageFavorites) : []
   )
 
   useEffect(() => {
@@ -33,6 +33,7 @@ const Pokemon = () => {
       .then(response => {
         console.log(response.data)
         setPokemon(response.data)
+        setIsfavorite(favorites.some(item => item.id === response.data.id))
       })
       .catch(error => {
         console.log(error)
