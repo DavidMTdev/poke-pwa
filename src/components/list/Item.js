@@ -11,13 +11,18 @@ const Item = props => {
     axios({
       method: 'GET',
       url: props.element.url
-    }).then(response => {
-      const res = response.data.names.filter(
-        item => item.language.name === props.language
-      )
-
-      setText(res[0].name)
     })
+      .then(response => {
+        const res = response.data?.names.filter(
+          item => item?.language.name === props.language
+        )
+
+        setText(res[0]?.name)
+      })
+      .catch(error => {
+        console.log(error)
+        setText(props.element?.name)
+      })
   }, [])
 
   return <ItemText>{text}</ItemText>

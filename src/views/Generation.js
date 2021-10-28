@@ -1,8 +1,10 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router'
+import { useParams } from 'react-router'
 
 import Item from '../components/list/Item'
+import Loading from '../components/loading'
+import BackButton from '../components/button/BackButton'
 
 const Generation = () => {
   const { name } = useParams()
@@ -10,13 +12,11 @@ const Generation = () => {
   const apiUrl = `https://pokeapi.co/api/v2/generation/${name}`
   const language = localStorage.getItem('language')
 
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [generation, setGeneration] = useState({ url: apiUrl, types: [] })
 
-  // const history = useHistory()
-
-  useEffect(() => {
-    axios({
+  useEffect(async () => {
+    await axios({
       method: 'GET',
       url: apiUrl
     })
@@ -24,14 +24,14 @@ const Generation = () => {
         console.log({ ...generation, ...response.data })
 
         setGeneration({ ...generation, ...response.data })
-        setIsLoading(true)
+        setIsLoading(false)
       })
       .catch(error => {
         console.log(error)
       })
   }, [])
 
-  const listTypes = generation.types.map((item, index) => (
+  const showItems = generation.types.map((item, index) => (
     <div key={index}>
       <Item element={item} language={language} />
     </div>
@@ -39,7 +39,11 @@ const Generation = () => {
 
   return (
     <div>
-      {isLoading && (
+      <BackButton />
+
+      {isLoading ? (
+        <Loading size='2' />
+      ) : (
         <>
           <div>
             <div>Name :</div>
@@ -51,7 +55,7 @@ const Generation = () => {
           </div>
           <div>
             <div>Types :</div>
-            {listTypes}
+            {showItems}
           </div>
         </>
       )}

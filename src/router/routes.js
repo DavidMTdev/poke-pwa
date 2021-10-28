@@ -2,6 +2,8 @@ import Login from '../views/Login'
 import Home from '../views/Home'
 import Generations from '../views/Generations'
 import Generation from '../views/Generation'
+import Pokedex from '../views/Pokedex'
+import PokedexRegion from '../views/PokedexRegion'
 
 const routes = [
   {
@@ -25,6 +27,20 @@ const routes = [
   {
     path: '/generations/:name',
     component: Generation,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/pokedex',
+    component: Pokedex,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/pokedex/:region',
+    component: PokedexRegion,
     meta: {
       requiresAuth: true
     }

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
@@ -7,10 +8,10 @@ import { GlobalStyle } from './styles'
 
 function App() {
   return (
-    <ThemeProvider theme={LightTheme}>
-      <GlobalStyle />
-      <Router />
-    </ThemeProvider>
+    // <ThemeProvider theme={LightTheme}>
+    // <GlobalStyle />
+    <Router />
+    // </ThemeProvider>
   )
 }
 

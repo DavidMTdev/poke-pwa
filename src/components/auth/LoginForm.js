@@ -32,6 +32,8 @@ const LoginForm = () => {
         setTimeout(() => {
           history.push('/home')
         }, 1000)
+
+        setShowLoading(false)
       })
       .catch(function (error) {
         localStorage.removeItem('token')

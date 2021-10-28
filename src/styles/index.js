@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: ${props => props.theme.secondary};
+  overscroll-behavior: none;
   }
 
   code {
