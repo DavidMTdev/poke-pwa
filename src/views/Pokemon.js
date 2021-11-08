@@ -32,7 +32,6 @@ const Pokemon = () => {
       url: apiUrl
     })
       .then(response => {
-        console.log(response.data)
         setPokemon(response.data)
         setIsfavorite(favorites.some(item => item.id === response.data.id))
       })
