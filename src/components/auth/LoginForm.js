@@ -5,17 +5,20 @@ import axios from 'axios'
 import styles from '../../styles'
 
 import Loading from '../loading'
+import ErrorNetwork from '../error/ErrorNetwork'
 
 const LoginForm = () => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [showLoading, setShowLoading] = useState(false)
+  const [error, setError] = useState(false)
   const history = useHistory()
 
   useEffect(() => {}, [username])
 
   const onSubmit = e => {
     e.preventDefault()
+    setError(false)
     setShowLoading(true)
 
     axios({
@@ -37,7 +40,8 @@ const LoginForm = () => {
       })
       .catch(function (error) {
         localStorage.removeItem('token')
-        console.log(error)
+        setShowLoading(false)
+        setError(true)
       })
   }
 
@@ -62,6 +66,7 @@ const LoginForm = () => {
       </FormContainer>
 
       {showLoading && <Loading size='1' />}
+      {error && <ErrorNetwork />}
     </>
   )
 }

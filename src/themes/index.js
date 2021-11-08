@@ -4,7 +4,8 @@ const LightTheme = {
   black: '#000000',
   white: '#ffffff',
   blue: '#1b53ba',
-  yellow: '#e6bc2f'
+  yellow: '#e6bc2f',
+  red: '#f13a3a'
 }
 
 const DarkTheme = {
@@ -13,7 +14,8 @@ const DarkTheme = {
   black: '#000000',
   white: '#ffffff',
   blue: '#1b53ba',
-  yellow: '#e6bc2f'
+  yellow: '#e6bc2f',
+  red: '#f13a3a'
 }
 
 export { LightTheme, DarkTheme }

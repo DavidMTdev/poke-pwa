@@ -9,6 +9,12 @@ const Header = () => {
   const [showLink, setShowLink] = useState(true)
   const [showNav, setShowNav] = useState(false)
 
+  const isToken = localStorage.getItem('token')
+
+  const handleClick = () => {
+    setShowNav(!showNav)
+  }
+
   return (
     <>
       <HollowHeader />
@@ -16,13 +22,42 @@ const Header = () => {
       <StyledHeader>
         <LogoHeader src={logo} alt={logo} />
 
-        <MenuBurger>
+        <MenuBurger onClick={handleClick}>
           <Burger></Burger>
         </MenuBurger>
+
         {showNav && (
           <Nav>
-            <StyledLink to='/'>Login</StyledLink>
-            <StyledLink to='/'>Pokédex</StyledLink>
+            {!isToken && (
+              <StyledLink to='/login' onClick={handleClick}>
+                Login
+              </StyledLink>
+            )}
+            {isToken && (
+              <StyledLink to='/home' onClick={handleClick}>
+                Home
+              </StyledLink>
+            )}
+            {isToken && (
+              <StyledLink to='/pokedex' onClick={handleClick}>
+                Pokédex
+              </StyledLink>
+            )}
+            {isToken && (
+              <StyledLink to='/generations' onClick={handleClick}>
+                Generations
+              </StyledLink>
+            )}
+            {isToken && (
+              <StyledLink to='/team' onClick={handleClick}>
+                My Team
+              </StyledLink>
+            )}
+            {isToken && (
+              <StyledLink to='/game' onClick={handleClick}>
+                Game
+              </StyledLink>
+            )}
           </Nav>
         )}
       </StyledHeader>

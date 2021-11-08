@@ -1,18 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
+import React, { useEffect } from 'react'
 
 import Router from './router'
-import { LightTheme } from './themes'
-import { GlobalStyle } from './styles'
 
 function App() {
-  return (
-    // <ThemeProvider theme={LightTheme}>
-    // <GlobalStyle />
-    <Router />
-    // </ThemeProvider>
-  )
+  useEffect(() => {
+    localStorage.setItem('language', 'en')
+  }, [])
+
+  return <Router />
 }
 
 export default App

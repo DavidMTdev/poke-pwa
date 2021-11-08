@@ -20,7 +20,6 @@ const Item = props => {
         setText(res[0]?.name)
       })
       .catch(error => {
-        console.log(error)
         setText(props.element?.name)
       })
   }, [])

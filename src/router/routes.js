@@ -6,6 +6,7 @@ import Pokedex from '../views/Pokedex'
 import PokedexRegion from '../views/PokedexRegion'
 import Pokemon from '../views/Pokemon'
 import Favorites from '../views/Favorites'
+import Game from '../views/Game'
 
 const routes = [
   {
@@ -55,8 +56,15 @@ const routes = [
     }
   },
   {
-    path: '/team/',
+    path: '/team',
     component: Favorites,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/game',
+    component: Game,
     meta: {
       requiresAuth: true
     }

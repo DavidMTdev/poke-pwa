@@ -7,10 +7,12 @@ import styles from '../styles'
 import Item from '../components/list/Item'
 import Loading from '../components/loading'
 import BackButton from '../components/button/BackButton'
+import ErrorNetwork from '../components/error/ErrorNetwork'
 
 const Pokedex = () => {
   const [listPokedex, setListPokedex] = useState([])
   const [isLoading, setisLoading] = useState(true)
+  const [error, setError] = useState(false)
 
   const history = useHistory()
   const language = localStorage.getItem('language')
@@ -29,7 +31,8 @@ const Pokedex = () => {
         setisLoading(false)
       })
       .catch(error => {
-        console.log(error)
+        setisLoading(false)
+        setError(true)
       })
   }, [])
 
@@ -49,9 +52,13 @@ const Pokedex = () => {
       <Title>
         <h1>Pokedex</h1>
       </Title>
-      <GenerationItems>
-        {isLoading ? <Loading size='2' /> : showItems}
-      </GenerationItems>
+      {error ? (
+        <ErrorNetwork />
+      ) : (
+        <GenerationItems>
+          {isLoading ? <Loading size='2' /> : showItems}
+        </GenerationItems>
+      )}
     </div>
   )
 }

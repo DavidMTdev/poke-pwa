@@ -3,8 +3,6 @@ import { useHistory } from 'react-router'
 
 import styles from '../styles'
 
-import Item from '../components/list/Item'
-import Loading from '../components/loading'
 import BackButton from '../components/button/BackButton'
 import HomeCard from '../components/card/HomeCard'
 

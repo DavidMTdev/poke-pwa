@@ -1,22 +1,32 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
+import styles from '../../styles'
+
 const PokeStats = props => {
   const [stats, setStats] = useState(props.item)
 
   return (
-    <div>
-      <div>
+    <StatsContainer>
+      <StatsTitle>Stats</StatsTitle>
+      <StatsList>
         {stats.map((item, index) => (
-          <div key={index}>
-            <span>{item?.stat.name} </span>
-            <span>{item?.base_stat}</span>
-          </div>
+          <StatsItem key={index}>
+            <StatsName>{item?.stat.name}</StatsName>
+            <StatsValue>{item?.base_stat}</StatsValue>
+          </StatsItem>
         ))}
-      </div>
-    </div>
+      </StatsList>
+    </StatsContainer>
   )
 }
+
+const StatsContainer = styles.poke.StatsContainer
+const StatsList = styles.poke.StatsList
+const StatsItem = styles.poke.StatsItem
+const StatsName = styles.poke.StatsName
+const StatsValue = styles.poke.StatsValue
+const StatsTitle = styles.poke.StatsTitle
 
 PokeStats.propTypes = {
   item: PropTypes.array

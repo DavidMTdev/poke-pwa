@@ -61,7 +61,6 @@ const PokedexRegion = () => {
     })
       .then(response => {
         return response.data
-        // setPokemons([...pokemons, response.data])
       })
       .catch(error => {
         console.log(error)
@@ -76,16 +75,12 @@ const PokedexRegion = () => {
     const poke = []
     let l = limit
 
-    // console.log(limit)
-    // console.log(offset)
-
     if (l > pokedex.pokemon_entries.length) {
       l = pokedex.pokemon_entries.length
     }
 
     for (let index = offset; index < l; index++) {
       const element = pokedex.pokemon_entries[index]
-      // console.log(element)
       await getPokemons(element.entry_number)
         .then(r => {
           poke.push(r)

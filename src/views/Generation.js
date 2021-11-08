@@ -5,6 +5,7 @@ import { useParams } from 'react-router'
 import Item from '../components/list/Item'
 import Loading from '../components/loading'
 import BackButton from '../components/button/BackButton'
+import ErrorNetwork from '../components/error/ErrorNetwork'
 
 const Generation = () => {
   const { name } = useParams()
@@ -13,6 +14,7 @@ const Generation = () => {
   const language = localStorage.getItem('language')
 
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(false)
   const [generation, setGeneration] = useState({ url: apiUrl, types: [] })
 
   useEffect(async () => {
@@ -21,13 +23,12 @@ const Generation = () => {
       url: apiUrl
     })
       .then(response => {
-        console.log({ ...generation, ...response.data })
-
         setGeneration({ ...generation, ...response.data })
         setIsLoading(false)
       })
       .catch(error => {
-        console.log(error)
+        setIsLoading(false)
+        setError(true)
       })
   }, [])
 
@@ -41,7 +42,9 @@ const Generation = () => {
     <div>
       <BackButton />
 
-      {isLoading ? (
+      {error ? (
+        <ErrorNetwork />
+      ) : isLoading ? (
         <Loading size='2' />
       ) : (
         <>

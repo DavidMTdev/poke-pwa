@@ -7,12 +7,13 @@ import styles from '../styles'
 import Item from '../components/list/Item'
 import Loading from '../components/loading'
 import BackButton from '../components/button/BackButton'
+import ErrorNetwork from '../components/error/ErrorNetwork'
 
 const Generations = () => {
   const [generations, setGenerations] = useState([])
   const [isLoading, setisLoading] = useState(true)
   // eslint-disable-next-line no-unused-vars
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(false)
   const history = useHistory()
   const language = localStorage.getItem('language')
 
@@ -26,7 +27,8 @@ const Generations = () => {
         setisLoading(false)
       })
       .catch(error => {
-        setError(error)
+        setisLoading(false)
+        setError(true)
       })
   }, [])
 
@@ -46,9 +48,13 @@ const Generations = () => {
       <Title>
         <h1>Generations</h1>
       </Title>
-      <GenerationItems>
-        {isLoading ? <Loading size='2' /> : showItems}
-      </GenerationItems>
+      {error ? (
+        <ErrorNetwork />
+      ) : (
+        <GenerationItems>
+          {isLoading ? <Loading size='2' /> : showItems}
+        </GenerationItems>
+      )}
     </div>
   )
 }

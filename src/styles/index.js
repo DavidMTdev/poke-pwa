@@ -6,7 +6,11 @@ import loading from './loading'
 import login from './view/login'
 import home from './view/home'
 import generations from './view/generations'
+import game from './view/game'
+
 import button from './components/button'
+import error from './components/error'
+import poke from './components/poke'
 
 const styles = {
   header: header(variables),
@@ -14,7 +18,10 @@ const styles = {
   loading: loading(variables),
   home: home(variables),
   generations: generations(variables),
-  button: button(variables)
+  button: button(variables),
+  error: error(variables),
+  game: game(variables),
+  poke: poke(variables)
 }
 
 const GlobalStyle = createGlobalStyle`
